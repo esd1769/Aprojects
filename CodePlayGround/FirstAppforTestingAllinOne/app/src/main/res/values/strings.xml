@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FirstAppforTestingAllinOne</string>
+    <string name="normal_default_text">Normal default text!!!</string>
+    <string name="equal">=</string>
+    <string name="textview">TextView</string>
+    <string name="button">Button</string>
+    <string name="enter_a_number">Enter a number</string>
+    <string name="enter_a_string_like_12_2">Enter a String like 12,+,2</string>
+    <string name="todo">TODO</string>
+</resources>
