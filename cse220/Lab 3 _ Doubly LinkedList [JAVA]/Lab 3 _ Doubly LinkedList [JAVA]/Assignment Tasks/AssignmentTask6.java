@@ -2,7 +2,28 @@ public class AssignmentTask6 {
 
     //SUBMIT ONLY THIS METHOD
     public static void pairJoin(DNode dh1, DNode dh2) {
-        // TO DO
+        DNode n1=dh1.next;
+        DNode n2=dh2.next;
+        DNode temp1,temp2;
+
+        while(n1!=null&&n2!= null){
+            temp1=n1.next;
+            temp2=n2.next;
+            n1.next=n2;
+            n2.prev=n1;
+            if (temp1 != null) {
+                n2.next =temp1;
+                temp1.prev= n2;
+            }
+            n1= temp1;
+            n2 =temp2;
+        }
+        DNode tail=dh1;
+        while(tail.next!=null){
+            tail =tail.next;
+        }
+        tail.next=dh1;
+        dh1.prev=tail;
     }
 
     //DO NOT SUBMIT THE DRIVER CODE BELOW

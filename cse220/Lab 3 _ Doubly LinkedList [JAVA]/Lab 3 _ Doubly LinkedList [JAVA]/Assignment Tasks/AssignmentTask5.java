@@ -2,7 +2,26 @@ public class AssignmentTask5 {
 
     //SUBMIT ONLY THIS METHOD
     public static void sumOddAppend(Node dh) {
-        // TO DO
+        Node prev= dh;
+        Node curr=dh.next;
+        int sum=0;
+
+        while (curr!=dh) {
+            int val=(int)curr.elem;
+            if(val%2!= 0){
+                sum +=val;
+                prev.next=curr.next;
+                curr =curr.next;
+            }
+            else{
+                prev= curr;
+                curr =curr.next;
+            }
+        }
+        Node sumNode=new Node(sum);
+        prev.next=sumNode;
+        sumNode.next=dh;
+
     }
 
     //DO NOT SUBMIT THE DRIVER CODE BELOW

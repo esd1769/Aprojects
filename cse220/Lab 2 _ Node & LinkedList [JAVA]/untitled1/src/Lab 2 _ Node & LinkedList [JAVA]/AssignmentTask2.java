@@ -3,8 +3,27 @@ public class AssignmentTask2 {
     
     // MUST SUBMIT this method
     public static int sumDist(Node head, Integer[] distArr) {
-        // To Do
-        return 0; // Remove this line.
+        int sum=0;
+
+
+        for (int  i=0;i <distArr.length;i++) {
+            int index= distArr[i];
+            Node cur =head;
+            int pos= 0;
+
+            while(cur!=null  && pos<index) {
+                cur=cur.next;
+                pos++;
+            }
+
+            if(cur!=null){
+                sum += (int)cur.elem;
+            }
+
+        }
+
+        return sum;
+
     }
 
     public static void main(String[] args) {
