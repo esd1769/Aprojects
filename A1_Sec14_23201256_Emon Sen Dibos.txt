@@ -1,0 +1,123 @@
+#assignment1
+def mostWater(arr):
+  maxi=0
+  mini=0
+  n=len(arr)
+
+  for i in range(n):
+    for j in range(n-1,0,-1):
+      if (arr[i]>arr[j]):mini=arr[j]
+      else:mini=arr[i]
+
+      if (((j-i)*mini)>maxi):maxi=(j-i)*mini
+      if(i>j):break
+  print(int(maxi))
+
+
+
+
+#assignment2
+def row_rotation(exam_week, seat_status):
+  ans=0;
+  n=len(seat_status)
+  m=len(seat_status[0])
+  def colShift(seat_status,num):
+    n=len(seat_status)
+    temp=seat_status[n-1][num]
+    for i in range(n-1,0,-1):
+      seat_status[i][num]=seat_status[i-1][num]
+    seat_status[0][num]=temp
+  def rowShift(seat_status):
+    n=len(seat_status[0])
+    for i in range(n):
+      colShift(seat_status,i)
+
+
+  for i in range(exam_week-1):
+    rowShift(seat_status)
+  for i in range(n):
+    for j in range(m):
+      if (len(seat_status[i][j])==2):
+        print(seat_status[i][j]+" | ",end="")
+        if (seat_status[i][j]=="AA"):ans=i+1
+        continue
+      if (len(seat_status[i][j])>2):
+        print(seat_status[i][j]+"|",end="")
+        if (seat_status[i][j]=="AA"):ans=i+1
+        continue
+      print(seat_status[i][j]+"  | ",end="")
+      if (seat_status[i][j]=="AA"):ans=i+1
+
+    print()
+
+
+  return ans
+
+
+
+
+
+#assignment3
+def compress_matrix(mat):
+  matrix2=np.array([[0,0],[0,0]])
+  row=len(mat)
+  halfRow=row//2
+  column=len(mat[0])
+  halfColumn=column//2
+
+  def loopfun(rowfirst,rowlast,colfirst,collast,matrix):
+    element=0
+    for i in range(rowfirst,rowlast):
+      for j in range(colfirst,collast):
+        element+=mat[i][j]
+    return element
+
+        
+  matrix2[0][0]=loopfun(0,halfRow,0,halfColumn,mat)
+  matrix2[1][0]=loopfun(halfRow,row,0,halfColumn,mat)
+  matrix2[0][1]=loopfun(0,halfRow,halfColumn,column,mat)
+  matrix2[1][1]=loopfun(halfRow,row,halfColumn,column,mat)
+  return matrix2;
+
+
+
+
+
+
+
+#assignment4
+def play_game(arena):
+  def pointCount(row,column,arena):
+    d1=np.array([-1,0,0,1])
+    d2=np.array([0,1,-1,0])
+    count=0
+    def isValid(row1,col1,arena):
+      row=len(arena)
+      column=len(arena[0])
+      if((0<=row1 and row1<row)and (0<=col1 and col1<column) ):
+        return True
+      else:
+        return False
+    for i in range(4):
+      newRow=row+int(d1[i])
+      newColumn=column+int(d2[i])
+      if (isValid(newRow,newColumn,arena) and (int(arena[newRow][newColumn])==2)):
+        count+=1
+    return count;
+  totalPoint=0;
+  row=len(arena)
+  column=len(arena[0])
+  for i in range(row):
+    for j in range(column):
+      if((arena[i][j]>0)and (int(arena[i][j])%50==0)):
+        totalPoint+=pointCount(i,j,arena)*2
+          
+  if(totalPoint>9):
+    print(f'Points Gained: {totalPoint}. Your team has survived the game.')
+  else:
+    print(f'Points Gained: {totalPoint}. Your team is out.')
+
+
+
+
+

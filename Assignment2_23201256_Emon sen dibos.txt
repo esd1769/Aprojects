@@ -1,0 +1,176 @@
+//assignment-1
+package l2;
+
+import java.util.Scanner;
+
+public class a1{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+
+        int n=sc.nextInt();
+
+        if (n%5==0&&n%7==0) {
+            System.out.println("Invalid: Divisible by both");
+        } else if (n%5==0) {
+            System.out.println("Divisible by 5 Only");
+        } else if (n%7==0) {
+            System.out.println("Divisible by 7 Only");
+        } else {
+            System.out.println("No");
+        }
+    }
+}
+//assignment-2
+package l2;
+
+import java.util.Scanner;
+
+public class a2{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+
+        float p=sc.nextFloat();
+        int age=sc.nextInt();
+
+        float tax=0;
+
+        if (age>=18){
+            if (p>=10000&&p<=20000) {
+                tax=p*0.05f;
+            } else if(p>20000) {
+                tax=p*0.10f;
+            }
+        }
+        System.out.println("Your tax amounts in "+(int)tax+" Tk");
+
+    }
+}
+
+//assignment-3
+package l2;
+import java.util.Scanner;
+
+public class a3{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        float a=sc.nextFloat();
+        float b=sc.nextFloat();
+        float c=sc.nextFloat();
+        float maxi,mini;
+
+
+
+        if(a>=b&& a>=c){
+            maxi =a;
+        }else if(b>=a&&b>=c){
+            maxi=b;
+        } else{
+            maxi=c;
+        }
+
+
+        if (a<=b&&a<=c){
+            mini=a;
+        } else if(b<=a&&b<=c) {
+            mini=b;
+        } else{
+            mini=c;
+        }
+        System.out.println("Maximum number is "+maxi);
+        System.out.println("Minimum number is "+mini);
+
+
+    }
+}
+//assignment-4
+package l2;
+import java.util.Scanner;
+
+public class a4{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+        int c=sc.nextInt();
+
+        if (a==b&&b==c){
+            System.out.println("This is a Equilateral triangle");
+        } else if(a==b ||a==c||b ==c){
+            System.out.println("This is a Isosceles triangle");
+        } else{
+            System.out.println("This is a Scalene triangle");
+
+
+        }
+    }}
+//assignment-5
+package l2;
+import java.util.Scanner;
+
+public class a5{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+
+
+        System.out.println("Enter the amount the customer need to pay(Taka)");
+        int t=sc.nextInt();
+        System.out.println("Enter the amount, customer gave(Taka)");
+        int g=sc.nextInt();
+
+        if(g<t){
+            int more=t-g;
+            System.out.println("Please pay "+more+" taka more.");
+        }
+
+        else if(g==t) {
+            System.out.println("The returned amount is 0 taka.");
+        }
+
+        else{
+            int c=g-t;
+            System.out.println("The returned amount is "+c+" taka.");
+            int[] notes= {100,50,20,10};
+            int[] coins ={5,2,1};
+
+            for(int n=0;n<notes.length;n++) {
+                int count=c/notes[n];
+                System.out.println(notes[n]+" taka note: "+count);
+                c=c%notes[n];}
+            for(int co=0;co<coins.length;co++) {
+                int count=c/coins[co];
+                System.out.println(coins[co]+" taka coin: "+count);
+                c=c%coins[co];
+            }
+        }
+
+    }
+}
+
+//assignment-6
+package l2;
+import java.util.Scanner;
+
+public class a6 {
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+
+        System.out.print("Input the 1st number: ");
+        int n1=sc.nextInt();
+
+        System.out.print("Input the 2nd number: ");
+        int n2=sc.nextInt();
+
+        System.out.print("Input the 3rd number: ");
+        int n3=sc.nextInt();
+
+        if (n1==n2 &&n2== n3){
+            System.out.println("All numbers are equal");}
+        else if (n1!=n2&&n1!=n3&&n2!=n3){
+            System.out.println("All numbers are different");
+        } else{
+            System.out.println("Neither all are equal or different");
+        }
+
+    }
+}

@@ -1,0 +1,83 @@
+//assignment1
+//import java.util.*;
+
+public class ass1{
+
+    public static void main(String[] args){
+        //Scanner sc=new Scanner(System.in);
+        //System.out.print("Given the number of minutes: ");
+        //int min=sc.nextInt();
+
+        int min=3456789;
+        int minutestoDay=60 *24;
+        int minutestoYear=minutestoDay*365;
+
+        int years= min/minutestoYear;
+        int days=(min% minutestoYear)/minutestoDay;
+
+
+        System.out.println(min+" minutes is approximately " + years+ " years and " +days+" days");
+    }
+}
+//assignment2
+public class ass2 {
+    public static void main(String[] args){
+        int a=2;
+        int b=5;
+        int c =8;
+        int d =((2*b)*((c-a)/3))+7;
+
+
+        System.out.println("Answer: "+d);
+    }
+}
+//assignment3
+public class ass3{
+    public static void main(String[] args){
+        int id=23221454;
+        int lastTwo=id%100;
+        int digit1=lastTwo%10;
+        int digit2=lastTwo/10;
+
+        System.out.println(digit1 +"," +digit2);
+    }
+}
+//assignment4
+public class ass4{
+    public static void main(String[] args) {
+        double a=8;
+        double d=a/2.0;
+        double b=3;
+        double side=Math.sqrt(d *d+b*b);
+        //double side=5.0;
+        double circumference =6*side;
+
+        double area =6*((side*side*Math.sqrt(3)) / 4.0);
+        System.out.println("circumference: "+circumference);
+        System.out.println("area: "+area);
+    }
+}
+//assignment5
+public class ass5{
+    public static void main(String[] args){
+        double a=4.5;
+        double b=9.5;
+        double c=Math.sqrt(a *a+b*b);
+
+        
+        double sinA =a/c;
+        double cosA= b/c;
+        double sinB =b/c;
+        double cosB = a/c;
+
+        System.out.println("Sin A = "+sinA);
+        System.out.println("Cos A = "+cosA);
+        System.out.println("Sin B = "+sinB);
+        System.out.println("Cos B = "+cosB);
+    }
+}
+
+
+
+
+

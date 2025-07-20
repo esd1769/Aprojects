@@ -1,0 +1,190 @@
+//ass1
+public static String checkSimilar( Node building1, Node building2 ){
+        Node temp3=building1;
+        Node temp4 = building2;
+
+        while (temp3!=null && temp4 != null) {
+            if (!temp3.elem.equals(temp4.elem)) {
+                return "Not Similar";
+            }
+            temp3 =temp3.next;
+            temp4= temp4.next;
+        }
+
+
+        if(temp3 !=null ||temp4 !=null) {
+            return "Not Similar";
+        }
+
+
+        return "Similar";
+
+
+    }
+    //ass2
+  public static int sumDist(Node head, Integer[] distArr) {
+        int sum=0;
+
+
+        for (int  i=0;i <distArr.length;i++) {
+            int index= distArr[i];
+            Node cur =head;
+            int pos= 0;
+
+            while(cur!=null  && pos<index) {
+                cur=cur.next;
+                pos++;
+            }
+
+            if(cur!=null){
+                sum += (int)cur.elem;
+            }
+
+        }
+
+        return sum;
+
+    }
+    //ass3
+   public static Node alternateMerge( Node head1, Node head2 ){
+        Node cur3 =head1;
+        Node cur4= head2;
+
+        while(cur3!=null&&cur4 !=null){
+            Node temp3=cur3.next;
+            Node temp4=cur4.next;
+
+            cur3.next=cur4;
+
+            if(temp3==null){
+                break;
+            }
+
+            cur4.next =temp3;
+
+            cur3= temp3;
+            cur4 =temp4;
+        }
+
+        return head1;
+    }
+    //ass4
+  public static Node idGenerator(Node head1, Node head2, Node head3) {
+        Node prev=null;
+        Node curr=head1;
+        while(curr!=null){
+            Node next= curr.next;
+            curr.next =prev;
+            prev =curr;
+            curr= next;
+        }
+        Node rev=prev;
+        Node reshead= null;
+        Node restail =null;
+        curr =rev;
+        while(curr!=null){
+            Node neww= new Node(curr.elem);
+            if (reshead ==null) {
+                reshead= neww;
+                restail=neww;
+            }
+            else{
+                restail.next=neww;
+                restail=restail.next;
+            }
+            curr=curr.next;
+        }
+        Node p2=head2;
+        Node p3=head3;
+        while (p2!=null&&p3!=null){
+            int val1= (int)p2.elem;
+            int val2=(int)p3.elem;
+            int sum= (val1+val2)%10;
+
+            Node neww= new Node(sum);
+            restail.next =neww;
+            restail =restail.next;
+
+            p2=p2.next;
+            p3=p3.next;
+        }
+
+        return reshead;
+
+    }
+    //ass5
+    public static void sumOddAppend(Node dh) {
+        Node prev= dh;
+        Node curr=dh.next;
+        int sum=0;
+        
+        while (curr!=dh) {
+            int val=(int)curr.elem;
+            if(val%2!= 0){
+                sum +=val;
+                prev.next=curr.next;
+                curr =curr.next;
+            }
+            else{
+                prev= curr;
+                curr =curr.next;
+            }
+        }
+        Node sumNode=new Node(sum);
+        prev.next=sumNode;
+        sumNode.next=dh;
+
+    }
+//ass6
+        public static void pairJoin(DNode dh1, DNode dh2) {
+        DNode n1=dh1.next;
+        DNode n2=dh2.next;
+        DNode temp1,temp2;
+
+        while(n1!=null&&n2!= null){
+            temp1=n1.next;
+            temp2=n2.next;
+            n1.next=n2;
+            n2.prev=n1;
+            if (temp1 != null) {
+                n2.next =temp1;
+                temp1.prev= n2;
+            }
+            n1= temp1;
+            n2 =temp2;
+        }
+        DNode tail=dh1;
+        while(tail.next!=null){
+            tail =tail.next;
+        }
+        tail.next=dh1;
+        dh1.prev=tail;
+    }
+    //ass7
+    public static void rangeMove(DNode dh, int start, int end) {
+        DNode c=dh.next;
+        int count=0;
+        int total=0;
+        DNode t=dh.next;
+        while(t!=dh){
+            total++;
+            t=t.next;
+        }
+
+
+
+        while(count<total){
+            DNode nextNode=c.next;
+            int val=(Integer)c.elem;
+            if(val>= start&& val<= end)
+            {   c.prev.next =c.next;
+                c.next.prev= c.prev;
+                DNode last=dh.prev;
+                last.next=c;
+                c.prev=last;
+                c.next=dh;
+                dh.prev=c;}
+            c=nextNode;
+            count++;
+        }
+    }
