@@ -59,16 +59,16 @@ public class HashTable {
 	//you need to COMPLETE this method and MUST SUBMIT IT
     //Complete this method first the write remove
     private int hashFunction( Integer key ){
-        
+
         return(key+3)%ht.length;
 
-        
+
     }
 
 
-	
+
     public void remove( Integer key ){
-        
+
         int idx = hashFunction(key);
 
         PairNode cur=ht[idx];
@@ -77,12 +77,12 @@ public class HashTable {
         while (cur!= null){
             if (cur.key.equals(key)){
                 if(prev ==null) {
-                    
+
                     ht[idx]= cur.next;
                 } else{
                     prev.next= cur.next;
                 }
-                return; 
+                return;
             }
             prev =cur;
             cur= cur.next;

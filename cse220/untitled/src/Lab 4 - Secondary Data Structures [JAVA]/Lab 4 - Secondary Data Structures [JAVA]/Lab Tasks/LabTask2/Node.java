@@ -1,9 +1,9 @@
 //DO NOT CHANGE THIS CLASS
 public class Node {
-    Object elem;
+    int elem;
     Node next;
     //DO NOT CHANGE THIS CONSTRUCTOR
-    public Node(Object elem, Node next) {
+    public Node(int elem, Node next) {
         this.elem = elem;
         this.next = next;
     }

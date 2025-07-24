@@ -5,9 +5,10 @@ public class PairNode {
     PairNode next;
 	// YOU HAVE TO WRITE THIS CONSTRUCTOR BUT NO NEED TO SUBMIT IT
     public PairNode( Integer k, String v ){
-        this.key = k;
-        this.value = v;
-        this.next =null;
+        key=k;
+        value=v;
+        next=null;
+        // TO DO
     }
     
 }

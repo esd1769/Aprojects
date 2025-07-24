@@ -17,13 +17,13 @@ public class RemoveConsecutiveDuplicates{
             char cur=(char)queue.dequeue();
 
             if (prev==null||cur!=prev) {
-                result+=cur; 
+                result+=cur;
                 prev =cur;
             }
         }
 
         return result;
-	
+
     }
     
     //DO NOT CHANGE and DO NOT SUBMIT THIS METHOD

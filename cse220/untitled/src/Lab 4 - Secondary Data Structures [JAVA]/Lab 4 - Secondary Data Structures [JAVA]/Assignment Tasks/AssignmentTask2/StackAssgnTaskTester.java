@@ -4,7 +4,7 @@ public class StackAssgnTaskTester {
     // YOU MUST SUBMIT THIS METHOD
     // Hint: You need to traverse each characters of the String
     public static int diamondCount(Stack stack, String str) {
-        
+
         int dia= 0;
 
         for (int i =0; i<str.length();i++){
@@ -22,7 +22,7 @@ public class StackAssgnTaskTester {
 
         return dia;
 
-   
+
     }
 
     //DO NOT CHANGE THIS METHOD
