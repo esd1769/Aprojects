@@ -1,0 +1,23 @@
+public void print_total_task(int[][] tasks) {
+    Stack<int[]> stack = new Stack<>();
+
+    for (int[] task : tasks) {
+        if (stack.isEmpty()) {
+            stack.push(task);
+        } else {
+            int[] top = stack.peek();
+            if (task[0] <= top[1]) {
+                top[1] = Math.max(top[1], task[1]);
+            } else {
+                stack.push(task);
+            }
+        }
+    }
+
+    // Print in decreasing order of start time
+    
+    while (!stack.isEmpty()) {
+        int[] task = stack.pop();
+        System.out.println(task[0] + ", " + task[1]);
+    }
+}
