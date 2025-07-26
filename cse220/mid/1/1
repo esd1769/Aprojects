@@ -1,0 +1,25 @@
+public void zig_zag(char[][] arr) {
+    int n = arr.length;
+
+    // Upper triangle
+    for (int line = 0; line < n; line++) {
+        int row = line;
+        int col = 0;
+        while (row >= 0) {
+            System.out.print(arr[row][col] + " ");
+            row--;
+            col++;
+        }
+    }
+
+    // Lower triangle
+    for (int line = 1; line < n; line++) {
+        int row = n - 1;
+        int col = line;
+        while (col < n) {
+            System.out.print(arr[row][col] + " ");
+            row--;
+            col++;
+        }
+    }
+}
